@@ -1,7 +1,7 @@
 if (not ?(which flutter)) {
     if ?(which snap) {
         sudo snap install flutter --classic
-        flutter get-sdk
+        flutter sdk-path
     } else {
         # TODO: Test this out
         flutter_version = '2.0.3'
