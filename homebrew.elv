@@ -2,4 +2,6 @@ homebrew_install_url = 'https://raw.githubusercontent.com/Homebrew/install/HEAD/
 
 use @0xc/tcarrio/elvish-modules/install
 
-install:bash $homebrew_install_url false homebrew '/home/linuxbrew/.linuxbrew/bin'
+if (not ?(which homebrew)) {
+	install:bash $homebrew_install_url false homebrew '/home/linuxbrew/.linuxbrew/bin'
+}
