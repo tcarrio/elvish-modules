@@ -1,3 +1,9 @@
+### Git utility functionality
+fn root_dir {
+  git rev-parse --show-toplevel
+}
+fn dir { root_dir }
+
 ### Git Status functionality
 fn status [@args]{
   git status $@args
@@ -9,6 +15,11 @@ fn add [@args]{
   git add $@args
 }
 fn a [@args]{ add $@args }
+
+fn add_all {
+  add (root_dir)
+}
+fn aa { add_all }
 
 ### Git Commit functionality
 fn commit [@args]{
