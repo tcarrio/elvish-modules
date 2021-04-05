@@ -1,33 +1,50 @@
+### Git Status functionality
 fn status [@args]{
   git status $@args
 }
 fn st [@args]{ status $@args }
 
+### Git Add functionality
 fn add [@args]{
   git add $@args
 }
 fn a [@args]{ add $@args }
 
+### Git Commit functionality
 fn commit [@args]{
   git commit -v $@args
 }
 fn c [@args]{ commit $@args }
-
-fn amend [@args]{
-  git commit --amend --no-edit --date=(date +"%Y %D") $@args
-}
-fn a [@args]{ amend $@args }
-
-fn log [@args]{
-  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all $@args
-}
-fn l [@args]{ log $@args }
 
 fn wip [@args]{
   git commit -m 'wip' --no-verify $@args
 }
 fn w [@args]{ wip $@args }
 
+### Git Amend functionality
+fn amend [@args]{
+  git commit --amend --no-edit --date=(date +"%Y %D") $@args
+}
+fn am [@args]{ amend $@args }
+
+### Git Log functionality
+fn log [@args]{
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all $@args
+}
+fn l [@args]{ log $@args }
+
+### Git Pull functionality
+fn fetch [@args]{
+  git fetch $@args
+}
+fn f [@args]{ fetch $@args }
+
+fn fetch_all [@args]{
+  git fetch -a $@args
+}
+fn fa [@args]{ fetch_all $@args }
+
+### Git Push functionality
 fn push [@args]{
   git push origin HEAD $@args
 }
@@ -43,8 +60,25 @@ fn pushff [@args]{
 }
 fn pff [@args]{ pushff $@args }
 
+### Git Rebase functionality
 fn squash [target @args]{
   base_name = (git merge-base HEAD $target)
   git rebase -i $base_name $@args
 }
-fn sq [target]{ squash $target }
+fn sq [target @args]{ squash $target $@args }
+
+fn rebase [target @args]{
+  git rebase $target $@args
+}
+fn rb [target @args]{ rebase $target $@args }
+
+### Git Diff functionality
+fn diff [@args]{
+  git diff $@args
+}
+fn d [@args]{ diff $@args }
+
+fn diff_staged [@args]{
+  diff --staged $@args
+}
+fn ds [@args]{ diff_staged $@args }
