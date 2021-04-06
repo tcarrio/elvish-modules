@@ -93,3 +93,26 @@ fn diff_staged [@args]{
   diff --staged $@args
 }
 fn ds [@args]{ diff_staged $@args }
+
+### Git Branch functionality
+fn branch [@args]{
+  git branch $@args
+}
+fn b [@args]{ branch $@args }
+
+fn branch_name {
+  git branch --show-current
+}
+fn bn { branch_name }
+
+
+### Git Checkout functionality
+fn checkout [@args]{
+  git checkout $@args
+}
+fn co [@args]{ checkout $@args }
+
+fn checkout_new_branch [branch_name @args]{
+  checkout -b $branch_name $@args
+}
+fn cob [branch_name @args]{ checkout_new_branch $branch_name $@args }
