@@ -27,7 +27,7 @@ fn run [@args]{
   if (not ?(git:st)) {
     echo "You are not in a valid git directory"
   } else {
-    docker run --user 1000:1000 -v (git:dir)":/tmp" --workdir /tmp --rm -it $image_name $@args
+    docker run -v (git:dir)":/tmp" --workdir /tmp --rm -it $image_name $@args
   }
 }
 
@@ -35,3 +35,4 @@ fn commit [@args]{
   run commit $@args
 }
 fn c [@args]{ commit $@args }
+
