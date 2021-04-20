@@ -4,6 +4,11 @@ fn root_dir {
 }
 fn dir { root_dir }
 
+fn shared_root [target &base=HEAD]{
+  git merge-base $base $target
+}
+fn sr [@args]{ shared_root $@args }
+
 ### Git Status functionality
 fn status [@args]{
   git status $@args
@@ -73,7 +78,7 @@ fn pff [@args]{ pushff $@args }
 
 ### Git Rebase functionality
 fn squash [target @args]{
-  base_name = (git merge-base HEAD $target)
+  base_name = ####
   git rebase -i $base_name $@args
 }
 fn sq [target @args]{ squash $target $@args }
