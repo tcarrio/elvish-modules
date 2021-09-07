@@ -56,7 +56,7 @@ fn fetch [@args]{
 fn f [@args]{ fetch $@args }
 
 fn fetch_all [@args]{
-  git fetch -a $@args
+  git fetch --all $@args
 }
 fn fa [@args]{ fetch_all $@args }
 
@@ -98,6 +98,12 @@ fn diff_staged [@args]{
   diff --staged $@args
 }
 fn ds [@args]{ diff_staged $@args }
+
+
+fn gen_patch [target]{
+  git format-patch $target --stdout | sed -n -e '/^diff --git/,$p' | head -n -3
+}
+fn gp [@args]{ gen_patch $@args }
 
 ### Git Branch functionality
 fn branch [@args]{
