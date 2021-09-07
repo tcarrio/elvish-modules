@@ -99,7 +99,31 @@ fn diff_staged [@args]{
 }
 fn ds [@args]{ diff_staged $@args }
 
+
 fn gen_patch [target]{
   git format-patch $target --stdout | sed -n -e '/^diff --git/,$p' | head -n -3
 }
 fn gp [@args]{ gen_patch $@args }
+
+### Git Branch functionality
+fn branch [@args]{
+  git branch $@args
+}
+fn b [@args]{ branch $@args }
+
+fn branch_name {
+  git branch --show-current
+}
+fn bn { branch_name }
+
+
+### Git Checkout functionality
+fn checkout [@args]{
+  git checkout $@args
+}
+fn co [@args]{ checkout $@args }
+
+fn checkout_new_branch [branch_name @args]{
+  checkout -b $branch_name $@args
+}
+fn cob [branch_name @args]{ checkout_new_branch $branch_name $@args }
