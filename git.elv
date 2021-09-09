@@ -129,7 +129,7 @@ fn checkout_new_branch [branch_name @args]{
 fn cob [branch_name @args]{ checkout_new_branch $branch_name $@args }
 
 fn reset_hard [@args]{
-  git reset --hard @args
+  git reset --hard $@args
 }
 fn rh [@args]{ reset_hard $@args }
 
