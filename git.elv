@@ -78,7 +78,7 @@ fn pff [@args]{ pushff $@args }
 
 ### Git Rebase functionality
 fn squash [target @args]{
-  base_name = ####
+  base_name = (shared_root $target)
   git rebase -i $base_name $@args
 }
 fn sq [target @args]{ squash $target $@args }
