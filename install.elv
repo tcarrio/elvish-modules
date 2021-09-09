@@ -1,13 +1,14 @@
 # a series of install helpers
 
 fn bash [url hash cmd path]{
+    paths = [$path $@paths]
+
     if (not ?(which $cmd)) {
         if ?(which bash) {
-            e:bash -c (curl -fsSL $url)
+            curl -fsSL $url | e:bash
         } else {
             which bash
         }
     }
 
-    paths = [$path $@paths]
 }
