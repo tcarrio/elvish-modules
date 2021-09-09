@@ -1,6 +1,6 @@
 # conventional commits utilities using docker
 
-use 0xc/elvish-modules/git
+use github.com/tcarrio/elvish-modules/git
 
 image_name = 0xc/convco
 
