@@ -12,3 +12,12 @@ fn bash [url hash cmd path]{
     }
 
 }
+
+fn cargo [pkg]{
+    use github.com/tcarrio/elvish-modules/rust
+    use file
+
+    if (not ?(test -f (rust:get_bin_dir)/$pkg)) {
+        e:cargo install $pkg
+    }
+}
