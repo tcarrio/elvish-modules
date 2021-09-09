@@ -1,6 +1,11 @@
+use github.com/tcarrio/elvish-modules/path
+
 # TODO: Implement auto install
 
-E:GOPATH = $E:HOME/go
+if (eq $E:GOPATH '') {
+    E:GOPATH = $E:HOME/go
+}
+
 go_bin = $E:GOPATH'/bin'
 
-paths = [$go_bin $@paths]
+path:add_to_path $go_bin
