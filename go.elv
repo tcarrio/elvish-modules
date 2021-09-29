@@ -8,4 +8,4 @@ if (eq $E:GOPATH '') {
 
 go_bin = $E:GOPATH'/bin'
 
-path:add_to_path $go_bin
+path:add $go_bin

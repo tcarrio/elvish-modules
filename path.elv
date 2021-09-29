@@ -1,5 +1,6 @@
 use github.com/tcarrio/elvish-modules/collections
 
-fn add_to_path [target]{
+# add to the PATH environment variable
+fn add [target]{
     paths = (collections:dedup [$target $@paths])
 }
