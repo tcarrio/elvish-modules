@@ -1,4 +1,4 @@
-use github.com/tcarrio/elvish-modules/path
+use github.com/tcarrio/elvish-modules/paths
 
 # TODO: Implement auto install
 
@@ -8,4 +8,4 @@ if (eq $E:GOPATH '') {
 
 go_bin = $E:GOPATH'/bin'
 
-path:add $go_bin
+paths:add $go_bin

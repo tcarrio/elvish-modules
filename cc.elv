@@ -2,12 +2,8 @@
 
 use github.com/tcarrio/elvish-modules/git
 
-fn is_installed {
-  put ?(which cargo)
-}
-
 fn bootstrap {
-  if (not (is_installed)) {
+  if (?(which cargo)) {
     use github.com/tcarrio/elvish-modules/install
     install:cargo convco
   }

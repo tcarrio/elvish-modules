@@ -1,3 +1,3 @@
-use github.com/tcarrio/elvish-modules/path
+use github.com/tcarrio/elvish-modules/paths
 
-path:add $E:HOME/.pulumi/bin
+paths:add $E:HOME/.pulumi/bin

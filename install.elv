@@ -1,8 +1,8 @@
 # a series of install helpers
-use github.com/tcarrio/elvish-modules/path
+use github.com/tcarrio/elvish-modules/paths
 
 fn bash [url hash cmd path]{
-    path:add $path
+    paths:add $path
 
     if (not ?(which $cmd)) {
         if ?(which bash) {
